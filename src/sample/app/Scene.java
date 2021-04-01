@@ -10,21 +10,22 @@ import java.util.List;
 
 public class Scene {
 
-    private Pane actionArea;
+    private final Pane actionArea;
 
-    private List<Figure> figures;
+    private final List<Figure> figures;
 
-    private double width;
+    private final double width;
 
-    private double height;
+    private final double height;
 
-    private static final int SPEED = 5;
+    private int speed;
 
     public Scene(Pane actionArea) {
         this.actionArea = actionArea;
         width = actionArea.getWidth();
         height = actionArea.getHeight();
         figures = new ArrayList<>();
+        speed = 5;
     }
 
     public void addFigure(String figureID) throws Exception {
@@ -34,13 +35,13 @@ public class Scene {
         Figure figure;
         switch (figureID) {
             case "circle":
-                figure = new Circle(width, height, SPEED);
+                figure = new Circle(width, height, speed);
                 break;
             case "star":
-                figure = new Star(width, height, SPEED);
+                figure = new Star(width, height, speed);
                 break;
             case "square":
-                figure = new Square(width, height, SPEED);
+                figure = new Square(width, height, speed);
                 break;
             default:
                 throw new Exception("Некорректная фигура");
@@ -52,6 +53,14 @@ public class Scene {
 
     public void stopScene() {
         this.stopAll();
+    }
+
+    public int getSpeed() {
+        return speed;
+    }
+
+    public void setSpeed(int speed) {
+        this.speed = speed;
     }
 
     private void stopAll() {
