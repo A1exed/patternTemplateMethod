@@ -1,31 +1,36 @@
 package sample.app;
 
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import sample.app.impl.Circle;
 import sample.app.impl.Square;
 import sample.app.impl.Star;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Scene {
 
     private Pane actionArea;
 
-    private final double width;
+    private List<Figure> figures;
 
-    private final double height;
+    private double width;
+
+    private double height;
 
     private static final int SPEED = 5;
-
-    private boolean isAction;
 
     public Scene(Pane actionArea) {
         this.actionArea = actionArea;
         width = actionArea.getWidth();
         height = actionArea.getHeight();
-        isAction = true;
+        figures = new ArrayList<>();
     }
 
-    public Figure addFigure(String figureID) throws Exception {
+    public void addFigure(String figureID) throws Exception {
+        if (!figures.isEmpty()) {
+            this.startAll();
+        }
         Figure figure;
         switch (figureID) {
             case "circle":
@@ -40,25 +45,24 @@ public class Scene {
             default:
                 throw new Exception("Некорректная фигура");
         }
-        actionArea.getChildren().add(figure.getImageView());
-        return figure;
-    }
-
-    public void startFigure(Figure figure) {
-        Thread thread = new Thread(() -> {
-            while (isAction) {
-                try {
-                    figure.action();
-                    Thread.sleep(10);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-        thread.start();
+        figures.add(figure);
+        actionArea.getChildren().add(figure.getFigure());
+        figure.start();
     }
 
     public void stopScene() {
-        isAction = false;
+        this.stopAll();
+    }
+
+    private void stopAll() {
+        for (Figure figure : figures) {
+            figure.stop();
+        }
+    }
+
+    private void startAll() {
+        for (Figure figure : figures) {
+            figure.start();
+        }
     }
 }

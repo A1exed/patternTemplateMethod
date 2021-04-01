@@ -1,6 +1,6 @@
 package sample.app;
 
-import javafx.scene.image.ImageView;
+import javafx.scene.Node;
 
 public class Action {
 
@@ -8,21 +8,18 @@ public class Action {
 
     private double heightScene;
 
-    private Figure figure;
-
-    private ImageView imageView;
+    private Node node;
 
     private int speed;
 
-    public Action(double widthScene, double heightScene, Figure figure, int speed) {
+    public Action(double widthScene, double heightScene, Node node, int speed) {
         this.widthScene = widthScene;
         this.heightScene = heightScene;
-        this.figure = figure;
         this.speed = speed;
-        imageView = figure.getImageView();
+        this.node = node;
     }
 
     public void action() {
-        imageView.setX(imageView.getX() + speed);
+        node.setLayoutX(node.getLayoutX() + speed);
     }
 }

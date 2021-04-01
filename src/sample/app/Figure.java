@@ -1,11 +1,12 @@
 package sample.app;
 
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.Pane;
+import javafx.scene.Node;
 
 public interface Figure {
 
-    void action();
+    void start();
 
-    ImageView getImageView();
+    void stop();
+
+    Node getFigure();
 }
