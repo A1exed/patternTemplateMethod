@@ -11,14 +11,15 @@ import sample.app.Figure;
 import sample.app.Scene;
 
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
 
     @FXML
     private Pane actionArea;
+
+    @FXML
+    private Pane btnsArea;
 
     @FXML
     private Button start;

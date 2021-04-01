@@ -17,9 +17,12 @@ public class Action {
         this.heightScene = heightScene;
         this.speed = speed;
         this.node = node;
+        this.node.setLayoutX(widthScene);
+        this.node.setLayoutY(heightScene);
     }
 
     public void action() {
-        node.setLayoutX(node.getLayoutX() + speed);
+        node.setLayoutX(node.getLayoutX() - speed);
+        node.setLayoutY(node.getLayoutY() - speed);
     }
 }

@@ -10,20 +10,20 @@ import java.util.List;
 
 public class Scene {
 
-    private final Pane actionArea;
+    private Pane actionArea;
 
-    private final List<Figure> figures;
+    private List<Figure> figures;
 
-    private final double width;
+    private double width;
 
-    private final double height;
+    private double height;
 
     private int speed;
 
     public Scene(Pane actionArea) {
         this.actionArea = actionArea;
-        width = actionArea.getWidth();
-        height = actionArea.getHeight();
+        width = actionArea.getPrefWidth();
+        height = actionArea.getPrefHeight();
         figures = new ArrayList<>();
         speed = 5;
     }

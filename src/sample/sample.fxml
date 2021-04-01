@@ -3,19 +3,22 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<GridPane alignment="center" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <columnConstraints>
+      <ColumnConstraints />
       <ColumnConstraints />
    </columnConstraints>
    <rowConstraints>
       <RowConstraints />
    </rowConstraints>
-   <Pane prefHeight="600.0" prefWidth="800.0">
-      <Button fx:id="start" layoutX="725.0" layoutY="386.0" mnemonicParsing="false" onAction="#start" text="Start" />
-      <RadioButton fx:id="circleBtn" layoutX="721.0" layoutY="300.0" mnemonicParsing="false" text="circle" />
-      <RadioButton fx:id="squareBtn" layoutX="721.0" layoutY="324.0" mnemonicParsing="false" text="square" />
-      <RadioButton fx:id="starBtn" layoutX="721.0" layoutY="350.0" mnemonicParsing="false" text="star" />
-      <Pane fx:id="actionArea" prefHeight="600.0" prefWidth="700.0" />
-      <Button fx:id="stop" layoutX="725.0" layoutY="419.0" mnemonicParsing="false" onAction="#stop" text="Stop" />
+   <Pane fx:id="actionArea" prefHeight="600.0" prefWidth="700.0" minHeight="600.0" maxHeight="600.0"
+         minWidth="700.0" maxWidth="700.0" style="-fx-border-color: black;" />
+   <Pane fx:id="btnsArea" prefHeight="600.0" prefWidth="100.0" minHeight="600.0" maxHeight="600.0"
+         minWidth="100.0" maxWidth="100.0" style="-fx-border-color: black; -fx-background-color: silver">
+      <RadioButton fx:id="circleBtn" layoutX="21.0" layoutY="300.0" mnemonicParsing="false" text="circle"/>
+      <RadioButton fx:id="squareBtn" layoutX="21.0" layoutY="324.0" mnemonicParsing="false" text="square"/>
+      <RadioButton fx:id="starBtn" layoutX="21.0" layoutY="350.0" mnemonicParsing="false" text="star"/>
+      <Button fx:id="start" layoutX="25.0" layoutY="386.0" mnemonicParsing="false" onAction="#start" text="Start"/>
+      <Button fx:id="stop" layoutX="25.0" layoutY="419.0" mnemonicParsing="false" onAction="#stop" text="Stop"/>
    </Pane>
 </GridPane>
