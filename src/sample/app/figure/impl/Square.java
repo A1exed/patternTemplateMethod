@@ -1,22 +1,22 @@
-package sample.app.impl;
+package sample.app.figure.impl;
 
 import javafx.animation.AnimationTimer;
 import javafx.scene.Node;
 import javafx.scene.shape.Rectangle;
-import sample.app.Action;
-import sample.app.Figure;
+import sample.app.action.impl.SquareAction;
+import sample.app.figure.Figure;
 
 public class Square implements Figure {
 
     private Node square;
 
-    private Action action;
+    private SquareAction action;
 
     private AnimationTimer timer;
 
-    public Square(double sceneWidth, double sceneHeight, int speed) {
-        square = new Rectangle(25, 25);
-        action = new Action(sceneWidth, sceneHeight, this.getFigure(), speed);
+    public Square(double sceneWidth, double sceneHeight) {
+        square = new Rectangle(50, 50);
+        action = new SquareAction(sceneWidth, sceneHeight, (Rectangle) this.getFigure());
         timer = new AnimationTimer() {
             @Override
             public void handle(long now) {

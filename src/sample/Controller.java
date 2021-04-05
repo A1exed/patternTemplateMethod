@@ -2,12 +2,10 @@ package sample;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.Pane;
-import sample.app.Figure;
 import sample.app.Scene;
 
 import java.net.URL;

@@ -11,14 +11,14 @@
    <rowConstraints>
       <RowConstraints />
    </rowConstraints>
-   <Pane fx:id="actionArea" prefHeight="600.0" prefWidth="700.0" minHeight="600.0" maxHeight="600.0"
-         minWidth="700.0" maxWidth="700.0" style="-fx-border-color: black;" />
    <Pane fx:id="btnsArea" prefHeight="600.0" prefWidth="100.0" minHeight="600.0" maxHeight="600.0"
-         minWidth="100.0" maxWidth="100.0" style="-fx-border-color: black; -fx-background-color: silver">
+         minWidth="100.0" maxWidth="100.0" style="-fx-border-color: black; -fx-background-color: silver" GridPane.columnIndex="0">
       <RadioButton fx:id="circleBtn" layoutX="21.0" layoutY="300.0" mnemonicParsing="false" text="circle"/>
       <RadioButton fx:id="squareBtn" layoutX="21.0" layoutY="324.0" mnemonicParsing="false" text="square"/>
       <RadioButton fx:id="starBtn" layoutX="21.0" layoutY="350.0" mnemonicParsing="false" text="star"/>
       <Button fx:id="start" layoutX="25.0" layoutY="386.0" mnemonicParsing="false" onAction="#start" text="Start"/>
       <Button fx:id="stop" layoutX="25.0" layoutY="419.0" mnemonicParsing="false" onAction="#stop" text="Stop"/>
    </Pane>
+   <Pane fx:id="actionArea" prefHeight="600.0" prefWidth="700.0" minHeight="600.0" maxHeight="600.0"
+         minWidth="700.0" maxWidth="700.0" style="-fx-border-color: black;" GridPane.columnIndex="1" />
 </GridPane>

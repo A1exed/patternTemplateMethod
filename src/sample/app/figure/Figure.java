@@ -1,4 +1,4 @@
-package sample.app;
+package sample.app.figure;
 
 import javafx.scene.Node;
 

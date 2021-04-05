@@ -1,9 +1,10 @@
 package sample.app;
 
 import javafx.scene.layout.Pane;
-import sample.app.impl.Circle;
-import sample.app.impl.Square;
-import sample.app.impl.Star;
+import sample.app.figure.Figure;
+import sample.app.figure.impl.Circle;
+import sample.app.figure.impl.Square;
+import sample.app.figure.impl.Star;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,14 +19,11 @@ public class Scene {
 
     private double height;
 
-    private int speed;
-
     public Scene(Pane actionArea) {
         this.actionArea = actionArea;
         width = actionArea.getPrefWidth();
         height = actionArea.getPrefHeight();
         figures = new ArrayList<>();
-        speed = 5;
     }
 
     public void addFigure(String figureID) throws Exception {
@@ -35,13 +33,13 @@ public class Scene {
         Figure figure;
         switch (figureID) {
             case "circle":
-                figure = new Circle(width, height, speed);
+                figure = new Circle(width, height);
                 break;
             case "star":
-                figure = new Star(width, height, speed);
+                figure = new Star(width, height);
                 break;
             case "square":
-                figure = new Square(width, height, speed);
+                figure = new Square(width, height);
                 break;
             default:
                 throw new Exception("Некорректная фигура");
@@ -53,14 +51,6 @@ public class Scene {
 
     public void stopScene() {
         this.stopAll();
-    }
-
-    public int getSpeed() {
-        return speed;
-    }
-
-    public void setSpeed(int speed) {
-        this.speed = speed;
     }
 
     private void stopAll() {

@@ -1,21 +1,21 @@
-package sample.app.impl;
+package sample.app.figure.impl;
 
 import javafx.animation.AnimationTimer;
 import javafx.scene.Node;
-import sample.app.Action;
-import sample.app.Figure;
+import sample.app.action.impl.CircleAction;
+import sample.app.figure.Figure;
 
-public class Star implements Figure {
+public class Circle implements Figure {
 
-    private Node star;
+    private Node circle;
 
-    private Action action;
+    private CircleAction action;
 
     private AnimationTimer timer;
 
-    public Star(double sceneWidth, double sceneHeight, int speed) {
-
-        action = new Action(sceneWidth, sceneHeight, this.getFigure(), speed);
+    public Circle(double sceneWidth, double sceneHeight) {
+        circle = new javafx.scene.shape.Circle(25);
+        action = new CircleAction(sceneWidth, sceneHeight, (javafx.scene.shape.Circle) this.getFigure());
         timer = new AnimationTimer() {
             @Override
             public void handle(long now) {
@@ -36,6 +36,6 @@ public class Star implements Figure {
 
     @Override
     public Node getFigure() {
-        return star;
+        return circle;
     }
 }
